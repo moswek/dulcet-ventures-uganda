@@ -81,10 +81,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
-      <body className={`${geist.variable} antialiased bg-charcoal text-ivory`}>
+      <body className={`${geist.variable} antialiased bg-white text-gray-900`}>
         {children}
       </body>
     </html>

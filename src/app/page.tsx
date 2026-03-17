@@ -550,19 +550,19 @@ function Sectors() {
           </h2>
         </motion.div>
 
-        <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 -mx-6 px-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:px-0 md:mx-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {sectors.map((sector, i) => (
             <motion.div
               key={sector.name}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.6,
                 delay: i * 0.1,
                 ease: [0.32, 0.72, 0, 1],
               }}
-              className="flex-shrink-0 w-[280px] md:w-auto glass-card rounded-2xl p-6 hover:bg-gray-100 transition-colors duration-300"
+              className="glass-card rounded-2xl p-6 hover:bg-gray-100 transition-colors duration-300"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
@@ -572,6 +572,45 @@ function Sectors() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const clientLogos = [
+  { name: "Uganda Police Service", src: "/UPS.png" },
+  { name: "NEMA", src: "/NEMA.png" },
+  { name: "National Planning Authority", src: "/NPA.png" },
+  { name: "Ministry of Tourism", src: "/MOTWA.jpeg" },
+  { name: "Ministry of Education", src: "/MOES.jpeg" },
+  { name: "Ministry of Defence", src: "/MDV.jpeg" },
+];
+
+function LogoMarquee() {
+  return (
+    <section className="py-16 px-6 overflow-hidden bg-white">
+      <div className="max-w-[1440px] mx-auto">
+        <p className="text-center text-sm text-gray-500 font-medium mb-8 uppercase tracking-widest">
+          Trusted by Leading Organizations
+        </p>
+        <div className="w-full overflow-hidden">
+          <div className="flex animate-marquee gap-16 items-center">
+            {[...clientLogos, ...clientLogos, ...clientLogos].map((logo, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 h-16 w-32 flex items-center justify-center"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={128}
+                  height={64}
+                  className="w-auto h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -593,7 +632,7 @@ function Experience() {
             Our Experience
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
-            Trusted by Leading Organizations
+            Projects We've Delivered
           </h2>
         </motion.div>
 
@@ -762,8 +801,8 @@ function Footer() {
   return (
     <footer className="py-16 px-6 border-t border-gray-200">
       <div className="max-w-[1440px] mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2 text-center md:text-left">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
+          <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
             <a href="#" className="inline-block mb-4">
               <Image
                 src="/logo.png"
@@ -883,6 +922,7 @@ export default function Home() {
       <About />
       <Services />
       <Sectors />
+      <LogoMarquee />
       <Experience />
       <Contact />
       <Footer />
