@@ -351,13 +351,13 @@ function Hero() {
           >
             <div className="relative w-full max-w-lg mx-auto aspect-[4/5] lg:aspect-square lg:max-w-full">
               <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-xl">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="popLayout">
                   <motion.div
                     key={currentImageIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "-100%" }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
                     className="absolute inset-0"
                   >
                     <Image
