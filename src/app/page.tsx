@@ -373,11 +373,11 @@ function Hero() {
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="grid grid-cols-2 gap-3">
                   <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">50+</div>
+                    <div className="text-2xl font-bold text-accent">10+</div>
                     <div className="text-xs text-gray-600">Projects</div>
                   </div>
                   <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">8+</div>
+                    <div className="text-2xl font-bold text-accent">5+</div>
                     <div className="text-xs text-gray-600">Years</div>
                   </div>
                   <div className="glass-card p-4 rounded-2xl text-center">
@@ -439,8 +439,8 @@ function About() {
 
             <div className="grid grid-cols-3 gap-4 pt-6">
               {[
-                { number: "8+", label: "Years" },
-                { number: "50+", label: "Projects" },
+                { number: "5+", label: "Years" },
+                { number: "10+", label: "Projects" },
                 { number: "12", label: "Sectors" },
               ].map((stat, i) => (
                 <motion.div
