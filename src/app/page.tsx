@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ArrowRight, 
-  List, 
-  X, 
-  MapPin, 
-  Phone, 
-  Envelope, 
-  LinkedinLogo, 
+import {
+  ArrowRight,
+  List,
+  X,
+  MapPin,
+  Phone,
+  Envelope,
+  LinkedinLogo,
   TwitterLogo,
   FacebookLogo,
   ChartLineUp,
@@ -22,7 +22,7 @@ import {
   Sun,
   ArrowUpRight,
   CheckCircle,
-  ChatCircle
+  ChatCircle,
 } from "@phosphor-icons/react";
 
 const staggerContainer = {
@@ -35,7 +35,11 @@ const staggerContainer = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.32, 0.72, 0, 1] as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.32, 0.72, 0, 1] as const },
+  },
 };
 
 const services = [
@@ -43,27 +47,54 @@ const services = [
     category: "Strategy & Advisory",
     icon: ChartLineUp,
     services: [
-      { name: "Strategy Development", desc: "Crafting actionable strategies aligned with your organizational vision" },
-      { name: "Market & Financial Analysis", desc: "Data-driven insights for informed business decisions" },
-      { name: "Public Policy Analysis", desc: "Evidence-based policy recommendations and impact assessments" },
+      {
+        name: "Strategy Development",
+        desc: "Crafting actionable strategies aligned with your organizational vision",
+      },
+      {
+        name: "Market & Financial Analysis",
+        desc: "Data-driven insights for informed business decisions",
+      },
+      {
+        name: "Public Policy Analysis",
+        desc: "Evidence-based policy recommendations and impact assessments",
+      },
     ],
   },
   {
     category: "Sustainability & Performance",
     icon: Tree,
     services: [
-      { name: "Monitoring & Evaluation", desc: "Rigorous M&E frameworks to track outcomes and impact" },
-      { name: "Environmental & Safety Studies", desc: "Comprehensive environmental assessments and compliance" },
-      { name: "Training & Capacity Building", desc: "Empowering organizations with skills and expertise" },
+      {
+        name: "Monitoring & Evaluation",
+        desc: "Rigorous M&E frameworks to track outcomes and impact",
+      },
+      {
+        name: "Environmental & Safety Studies",
+        desc: "Comprehensive environmental assessments and compliance",
+      },
+      {
+        name: "Training & Capacity Building",
+        desc: "Empowering organizations with skills and expertise",
+      },
     ],
   },
   {
     category: "Planning & Project Delivery",
     icon: Briefcase,
     services: [
-      { name: "Project Management", desc: "End-to-end project delivery with proven methodologies" },
-      { name: "Feasibility Studies", desc: "Thorough viability assessments for investment decisions" },
-      { name: "Master Planning", desc: "Long-term development blueprints for sustainable growth" },
+      {
+        name: "Project Management",
+        desc: "End-to-end project delivery with proven methodologies",
+      },
+      {
+        name: "Feasibility Studies",
+        desc: "Thorough viability assessments for investment decisions",
+      },
+      {
+        name: "Master Planning",
+        desc: "Long-term development blueprints for sustainable growth",
+      },
     ],
   },
 ];
@@ -78,16 +109,56 @@ const sectors = [
 ];
 
 const projects = [
-  { year: "2024", client: "Ministry of Education and Sports", project: "Smart Education Project - Pre-feasibility & Feasibility Studies" },
-  { year: "2024", client: "Ministry of Tourism, Wildlife and Antiquities", project: "Convention Center Development, Entebbe - Feasibility Study" },
-  { year: "2024", client: "Uganda Prisons Service", project: "Records Information Management Training" },
-  { year: "2023", client: "National Environment Management Authority", project: "NEMA Infrastructure Development Project - Pre-feasibility" },
-  { year: "2023", client: "Uganda Prisons Service", project: "Prison Infrastructure Upgrade - Pre-feasibility Study" },
-  { year: "2022", client: "National Planning Authority", project: "Jinja Industrial Park - Pre-feasibility & Feasibility Studies" },
-  { year: "2022", client: "Ministry of Tourism, Wildlife and Antiquities", project: "UWRTI Infrastructure Development - Feasibility Study" },
-  { year: "2022", client: "Uganda Coffee Development Authority", project: "Strategic Plan 2020/21 - 2024/25" },
-  { year: "2021", client: "National Planning Authority", project: "Busoga Region Sugar Factory - Feasibility Study" },
-  { year: "2021", client: "Ministry of Defence and Veterans", project: "National Military Museum - Implementation Planning" },
+  {
+    year: "2024",
+    client: "Ministry of Education and Sports",
+    project: "Smart Education Project - Pre-feasibility & Feasibility Studies",
+  },
+  {
+    year: "2024",
+    client: "Ministry of Tourism, Wildlife and Antiquities",
+    project: "Convention Center Development, Entebbe - Feasibility Study",
+  },
+  {
+    year: "2024",
+    client: "Uganda Prisons Service",
+    project: "Records Information Management Training",
+  },
+  {
+    year: "2023",
+    client: "National Environment Management Authority",
+    project: "NEMA Infrastructure Development Project - Pre-feasibility",
+  },
+  {
+    year: "2023",
+    client: "Uganda Prisons Service",
+    project: "Prison Infrastructure Upgrade - Pre-feasibility Study",
+  },
+  {
+    year: "2022",
+    client: "National Planning Authority",
+    project: "Jinja Industrial Park - Pre-feasibility & Feasibility Studies",
+  },
+  {
+    year: "2022",
+    client: "Ministry of Tourism, Wildlife and Antiquities",
+    project: "UWRTI Infrastructure Development - Feasibility Study",
+  },
+  {
+    year: "2022",
+    client: "Uganda Coffee Development Authority",
+    project: "Strategic Plan 2020/21 - 2024/25",
+  },
+  {
+    year: "2021",
+    client: "National Planning Authority",
+    project: "Busoga Region Sugar Factory - Feasibility Study",
+  },
+  {
+    year: "2021",
+    client: "Ministry of Defence and Veterans",
+    project: "National Military Museum - Implementation Planning",
+  },
 ];
 
 function Navigation() {
@@ -114,21 +185,21 @@ function Navigation() {
       <div className="max-w-[1440px] mx-auto px-6">
         <div
           className={`mx-auto transition-all duration-700 ${
-            isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3 px-6 border border-gray-100" : "py-5 px-8 bg-white/80 backdrop-blur-sm border border-transparent"
+            isScrolled
+              ? "bg-white/90 backdrop-blur-md shadow-sm py-3 px-6 border border-gray-100"
+              : "py-5 px-8 bg-white/80 backdrop-blur-sm border border-transparent"
           } rounded-full w-full max-w-6xl`}
         >
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-full bg-accent overflow-hidden flex-shrink-0">
-                <Image 
-                  src="/logo.svg" 
-                  alt="Dulcet Ventures Uganda Logo"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <span className="font-semibold text-lg tracking-tight">Dulcet Ventures Uganda</span>
+            <a href="#" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Dulcet Ventures Uganda Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                unoptimized
+              />
             </a>
 
             <div className="hidden md:flex items-center gap-8">
@@ -220,7 +291,7 @@ function Hero() {
     <section className="relative min-h-[100dvh] pt-32 pb-20 px-6 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(46,163,242,0.08),transparent_50%)]" />
-      
+
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 min-h-[70vh]">
           <motion.div
@@ -234,7 +305,7 @@ function Hero() {
                 Strategic Consulting
               </span>
             </motion.div>
-            
+
             <motion.h1
               variants={cardVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
@@ -242,15 +313,20 @@ function Hero() {
               Guiding Projects,{" "}
               <span className="text-accent-light">Empowering Growth</span>
             </motion.h1>
-            
+
             <motion.p
               variants={cardVariants}
               className="text-lg text-gray-600 leading-relaxed max-w-xl mb-10"
             >
-              Dulcet Ventures Uganda is a multidisciplinary consulting firm providing strategic, analytical, and project-focused solutions to public and private sector clients across Uganda and East Africa.
+              Dulcet Ventures Uganda is a multidisciplinary consulting firm
+              providing strategic, analytical, and project-focused solutions to
+              public and private sector clients across Uganda and East Africa.
             </motion.p>
-            
-            <motion.div variants={cardVariants} className="flex flex-wrap gap-4">
+
+            <motion.div
+              variants={cardVariants}
+              className="flex flex-wrap gap-4"
+            >
               <a
                 href="#services"
                 className="group flex items-center gap-3 bg-accent text-white px-7 py-4 rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 active:scale-[0.98]"
@@ -293,7 +369,7 @@ function Hero() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              
+
               <div className="absolute inset-0 flex items-center justify-center p-8">
                 <div className="grid grid-cols-2 gap-3">
                   <div className="glass-card p-4 rounded-2xl text-center">
@@ -333,12 +409,15 @@ function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           >
-            <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">Who We Are</span>
+            <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
+              Who We Are
+            </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-8">
-              A multidisciplinary consulting firm dedicated to transforming visions into reality
+              A multidisciplinary consulting firm dedicated to transforming
+              visions into reality
             </h2>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -347,12 +426,17 @@ function About() {
             className="space-y-6"
           >
             <p className="text-lg text-gray-600 leading-relaxed">
-              We specialize in project management, feasibility studies, master planning, strategy development, market and financial analysis, public policy advisory, capacity building, monitoring and evaluation, and environmental and safety studies.
+              We specialize in project management, feasibility studies, master
+              planning, strategy development, market and financial analysis,
+              public policy advisory, capacity building, monitoring and
+              evaluation, and environmental and safety studies.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our work spans key sectors including agriculture, energy, infrastructure, manufacturing, education, water and environment, tourism, and urban development.
+              Our work spans key sectors including agriculture, energy,
+              infrastructure, manufacturing, education, water and environment,
+              tourism, and urban development.
             </p>
-            
+
             <div className="grid grid-cols-3 gap-4 pt-6">
               {[
                 { number: "8+", label: "Years" },
@@ -367,7 +451,9 @@ function About() {
                   transition={{ delay: i * 0.1 }}
                   className="text-center p-4 rounded-2xl glass-card"
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-accent-light">{stat.number}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-accent-light">
+                    {stat.number}
+                  </div>
                   <div className="text-xs text-gray-600 mt-1">{stat.label}</div>
                 </motion.div>
               ))}
@@ -390,7 +476,9 @@ function Services() {
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">Our Services</span>
+          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
+            Our Services
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
             Comprehensive Solutions for Complex Challenges
           </h2>
@@ -403,20 +491,32 @@ function Services() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: [0.32, 0.72, 0, 1] }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.15,
+                ease: [0.32, 0.72, 0, 1],
+              }}
               className="glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition-transform duration-500"
             >
               <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
-                <category.icon className="w-7 h-7 text-accent-light" weight="duotone" />
+                <category.icon
+                  className="w-7 h-7 text-accent-light"
+                  weight="duotone"
+                />
               </div>
               <h3 className="text-xl font-bold mb-6">{category.category}</h3>
               <ul className="space-y-4">
                 {category.services.map((service) => (
                   <li key={service.name} className="group">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" weight="fill" />
+                      <CheckCircle
+                        className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                        weight="fill"
+                      />
                       <div>
-                        <h4 className="font-medium text-gray-800 mb-1">{service.name}</h4>
+                        <h4 className="font-medium text-gray-800 mb-1">
+                          {service.name}
+                        </h4>
                         <p className="text-sm text-gray-600">{service.desc}</p>
                       </div>
                     </div>
@@ -442,7 +542,9 @@ function Sectors() {
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">Sectors We Serve</span>
+          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
+            Sectors We Serve
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
             Expertise Across Key Industries
           </h2>
@@ -455,7 +557,11 @@ function Sectors() {
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.32, 0.72, 0, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: [0.32, 0.72, 0, 1],
+              }}
               className="flex-shrink-0 w-[280px] md:w-auto glass-card rounded-2xl p-6 hover:bg-gray-100 transition-colors duration-300"
             >
               <div className="flex items-center gap-4">
@@ -483,7 +589,9 @@ function Experience() {
           transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">Our Experience</span>
+          <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
+            Our Experience
+          </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
             Trusted by Leading Organizations
           </h2>
@@ -491,7 +599,7 @@ function Experience() {
 
         <div className="relative">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate to-transparent" />
-          
+
           <div className="space-y-8">
             {projects.map((project, i) => (
               <motion.div
@@ -499,16 +607,22 @@ function Experience() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.32, 0.72, 0, 1] }}
+                transition={{
+                  duration: 0.6,
+                  delay: i * 0.08,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
                 className={`relative flex items-start gap-8 ${
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent -translate-x-1/2 mt-2" />
-                
-                <div className={`ml-12 md:ml-0 md:w-[45%] ${
-                  i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
-                }`}>
+
+                <div
+                  className={`ml-12 md:ml-0 md:w-[45%] ${
+                    i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                  }`}
+                >
                   <div className="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300">
                     <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent-light text-xs font-semibold mb-3">
                       {project.year}
@@ -517,7 +631,7 @@ function Experience() {
                     <p className="text-sm text-gray-600">{project.project}</p>
                   </div>
                 </div>
-                
+
                 <div className="hidden md:block md:w-[10%]" />
               </motion.div>
             ))}
@@ -539,12 +653,15 @@ function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
           >
-            <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">Contact Us</span>
+            <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
+              Contact Us
+            </span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-8">
               Let&apos;s Start a Conversation
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-10">
-              Ready to transform your vision into reality? Get in touch with our team of experts today.
+              Ready to transform your vision into reality? Get in touch with our
+              team of experts today.
             </p>
 
             <div className="space-y-6">
@@ -554,7 +671,9 @@ function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Address</h4>
-                  <p className="text-gray-600">P. O. Box 149794, Kampala Uganda</p>
+                  <p className="text-gray-600">
+                    P. O. Box 149794, Kampala Uganda
+                  </p>
                 </div>
               </div>
 
@@ -575,21 +694,9 @@ function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
-                  <p className="text-gray-600">info@dulcetventuresuganda.com</p>
+                  <p className="text-gray-600">dulcetvent@gmail.com</p>
                 </div>
               </div>
-            </div>
-
-            <div className="flex gap-4 mt-8">
-              <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-accent hover:text-white transition-colors duration-300">
-                <LinkedinLogo className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-accent hover:text-white transition-colors duration-300">
-                <TwitterLogo className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-accent hover:text-white transition-colors duration-300">
-                <FacebookLogo className="w-5 h-5" />
-              </a>
             </div>
           </motion.div>
 
@@ -602,16 +709,20 @@ function Contact() {
             <div className="glass-card rounded-[2rem] p-8 lg:p-10">
               <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
               <p className="text-gray-600 mb-8">
-                Reach out to us directly. We&apos;re here to help with your consulting needs.
+                Reach out to us directly. We&apos;re here to help with your
+                consulting needs.
               </p>
-              
+
               <div className="space-y-4">
                 <a
                   href="tel:+256782915102"
                   className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-accent transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-accent-light" weight="duotone" />
+                    <Phone
+                      className="w-6 h-6 text-accent-light"
+                      weight="duotone"
+                    />
                   </div>
                   <div className="flex-1">
                     <span className="text-sm text-gray-600 block">Call us</span>
@@ -621,15 +732,20 @@ function Contact() {
                 </a>
 
                 <a
-                  href="mailto:info@dulcetventuresuganda.com"
+                  href="mailto:dulcetvent@gmail.com"
                   className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-accent transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <Envelope className="w-6 h-6 text-accent-light" weight="duotone" />
+                    <Envelope
+                      className="w-6 h-6 text-accent-light"
+                      weight="duotone"
+                    />
                   </div>
                   <div className="flex-1">
-                    <span className="text-sm text-gray-600 block">Email us</span>
-                    <span className="font-semibold">info@dulcetventuresuganda.com</span>
+                    <span className="text-sm text-gray-600 block">
+                      Email us
+                    </span>
+                    <span className="font-semibold">dulcetvent@gmail.com</span>
                   </div>
                   <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-accent transition-colors" />
                 </a>
@@ -647,34 +763,38 @@ function Footer() {
     <footer className="py-16 px-6 border-t border-gray-200">
       <div className="max-w-[1440px] mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-full bg-accent overflow-hidden flex-shrink-0">
-                <Image 
-                  src="/logo.svg" 
-                  alt="Dulcet Ventures Uganda Logo"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </div>
-              <span className="font-semibold text-lg">Dulcet Ventures Uganda</span>
+          <div className="md:col-span-2 text-center md:text-left">
+            <a href="#" className="inline-block mb-4">
+              <Image
+                src="/logo.png"
+                alt="Dulcet Ventures Uganda Logo"
+                width={160}
+                height={53}
+                className="h-14 w-auto"
+                unoptimized
+              />
             </a>
             <p className="text-gray-600 max-w-sm">
-              Strategic consulting and advisory services for organizations across Uganda and East Africa.
+              Strategic consulting and advisory services for organizations
+              across Uganda and East Africa.
             </p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {["Home", "About", "Services", "Experience", "Contact"].map((link) => (
-                <li key={link}>
-                  <a href={`#${link.toLowerCase()}`} className="text-gray-600 hover:text-accent transition-colors">
-                    {link}
-                  </a>
-                </li>
-              ))}
+              {["Home", "About", "Services", "Experience", "Contact"].map(
+                (link) => (
+                  <li key={link}>
+                    <a
+                      href={`#${link.toLowerCase()}`}
+                      className="text-gray-600 hover:text-accent transition-colors"
+                    >
+                      {link}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
@@ -689,13 +809,26 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-600">
-            &copy; 2024 Dulcet Ventures Uganda. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-gray-600">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms & Conditions</a>
+        <div className="pt-8 border-t border-gray-200">
+          <div className="flex flex-col items-center gap-2">
+            <p className="text-sm text-gray-600">
+              &copy; {new Date().getFullYear()} Dulcet Ventures Uganda. All
+              rights reserved.
+            </p>
+            <p className="text-xs text-gray-400">
+              Designed & Managed by{" "}
+              <a
+                href="https://digitaltalisman.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <span className="inline-block bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-[length:200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">
+                  Digital Talisman
+                </span>
+                <span className="inline-block"> 🇺🇬</span>
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -705,7 +838,8 @@ function Footer() {
 
 function WhatsAppButton() {
   const phoneNumber = "256782915102";
-  const message = "Hello Dulcet Ventures Uganda, I'd like to inquire about your consulting services.";
+  const message =
+    "Hello Dulcet Ventures Uganda, I'd like to inquire about your consulting services.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
@@ -714,26 +848,20 @@ function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0 }}
+      whileHover={{ scale: 1.15, y: -4 }}
       animate={{ 
         opacity: 1, 
         scale: 1,
-        boxShadow: [
-          "0 0 0 0 rgba(46, 163, 242, 0)",
-          "0 0 0 15px rgba(46, 163, 242, 0)",
-          "0 0 0 0 rgba(46, 163, 242, 0)",
-        ],
+        y: [0, -8, 0],
       }}
-      whileHover={{ scale: 1.1 }}
       transition={{ 
+        y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 },
         delay: 1, 
         type: "spring", 
         stiffness: 100, 
-        damping: 20,
+        damping: 20 
       }}
-      className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-white rounded-full shadow-lg"
-      style={{
-        animation: "pulse-ring 3s ease-in-out infinite 3s",
-      }}
+      className="fixed bottom-6 right-6 z-50 w-16 h-16"
       aria-label="Chat on WhatsApp"
     >
       <Image
@@ -743,16 +871,6 @@ function WhatsAppButton() {
         height={64}
         className="w-full h-full object-contain"
       />
-      <style jsx>{`
-        @keyframes pulse-ring {
-          0%, 100% {
-            box-shadow: 0 0 0 0 rgba(46, 163, 242, 0.4);
-          }
-          50% {
-            box-shadow: 0 0 0 15px rgba(46, 163, 242, 0);
-          }
-        }
-      `}</style>
     </motion.a>
   );
 }

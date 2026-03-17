@@ -136,3 +136,29 @@ body {
     radial-gradient(ellipse 60% 40% at 80% 60%, rgba(46, 163, 242, 0.06), transparent),
     radial-gradient(ellipse 40% 30% at 50% 80%, rgba(46, 163, 242, 0.03), transparent);
 }
+
+.pulse-whatsapp {
+  animation: pulse-ring 3s ease-in-out infinite 3s;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(46, 163, 242, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(46, 163, 242, 0);
+  }
+}
+
+@keyframes gradient-wave {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gradient-wave {
+  animation: gradient-wave 3s linear infinite;
+}
