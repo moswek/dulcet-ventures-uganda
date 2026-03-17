@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dulcet Ventures Uganda - Corporate Website
+
+A professional corporate website for Dulcet Ventures Uganda, a multidisciplinary consulting firm specializing in strategic advisory, feasibility studies, project management, and sustainability services across Uganda and East Africa.
+
+## Client
+
+**Dulcet Ventures Uganda** is a leading consulting firm providing strategic, analytical, and project-focused solutions to public and private sector clients. Their expertise spans:
+
+- Strategy & Advisory
+- Sustainability & Performance
+- Planning & Project Delivery
+
+They work with government ministries, NGOs, and private organizations across sectors including agriculture, energy, infrastructure, manufacturing, and tourism.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (with App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Icons**: Phosphor Icons
+- **Deployment**: Vercel / GitHub
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Responsive design optimized for all devices
+- Smooth hero image slideshow with fade transitions
+- Animated floating WhatsApp contact button
+- Professional light theme suitable for government bids
+- Mobile-friendly navigation with glassmorphism effects
