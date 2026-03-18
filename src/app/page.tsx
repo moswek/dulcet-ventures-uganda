@@ -851,7 +851,7 @@ function Footer() {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col items-center gap-2">
             <p className="text-sm text-gray-600">
-              &copy; {new Date().getFullYear()} Dulcet Ventures Uganda. All
+              &copy; {new Date().getFullYear()} Dulcet Ventures Limited. All
               rights reserved.
             </p>
             <p className="text-xs text-gray-400">
