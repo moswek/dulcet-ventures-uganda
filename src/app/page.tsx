@@ -179,19 +179,19 @@ function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        isScrolled ? "mt-4" : "mt-8"
+        isScrolled ? "mt-2" : "mt-4"
       }`}
     >
       <div className="max-w-360 mx-auto px-6">
         <div
-          className={`mx-auto transition-all duration-700 ${
+          className={`mx-auto transition-all duration-700 rounded-full w-full max-w-6xl ${
             isScrolled
-              ? "bg-white/70 backdrop-blur-md shadow-sm py-3 px-6 border border-gray-200"
-              : "py-5 px-8 bg-white/50 backdrop-blur-sm border border-white/30"
-          } rounded-full w-full max-w-6xl`}
+              ? "bg-primary-dark/95 backdrop-blur-md shadow-sm py-2.5 px-5 border border-white/10"
+              : "bg-primary-dark/80 backdrop-blur-sm py-4 px-6 border border-white/10"
+          }`}
         >
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center">
+            <a href="#" className="flex items-center bg-white/90 rounded-lg px-2 py-1">
               <Image
                 src="/logo.png"
                 alt="Dulcet Ventures Uganda Logo"
@@ -207,7 +207,7 @@ function Navigation() {
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className="text-gray-600 hover:text-gray-900 transition-colors duration-300 text-sm font-medium"
+                  className="text-gray-200 hover:text-white transition-colors duration-300 text-sm font-medium tracking-wide"
                 >
                   {link}
                 </a>
@@ -217,7 +217,7 @@ function Navigation() {
             <div className="hidden md:block">
               <a
                 href="#contact"
-                className="group flex items-center gap-2 bg-ivory text-gray-900 px-5 py-2.5 rounded-full font-medium text-sm hover:bg-accent hover:text-white transition-all duration-300 active:scale-[0.98]"
+                className="group flex items-center gap-2 bg-white text-primary-dark px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all duration-300 active:scale-[0.98]"
               >
                 Get in Touch
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -226,7 +226,7 @@ function Navigation() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-white"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -245,7 +245,7 @@ function Navigation() {
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 top-24 bg-white/85 md:hidden"
+            className="fixed inset-0 top-24 bg-primary-dark/95 md:hidden"
           >
             <div className="flex flex-col items-center justify-center gap-8 pt-16">
               {navLinks.map((link, i) => (
@@ -256,7 +256,7 @@ function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-medium text-gray-800"
+                  className="text-2xl font-medium text-white"
                 >
                   {link}
                 </motion.a>
@@ -288,10 +288,10 @@ function Hero() {
   }, [heroImages.length]);
 
   return (
-    <section className="relative min-h-dvh pt-32 pb-20 px-6 overflow-hidden bg-slate-100">
+    <section className="relative min-h-dvh pt-32 pb-20 px-6 overflow-hidden bg-primary-dark">
       <div className="absolute inset-0 mesh-gradient" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(38,70,83,0.12),transparent_50%)]" />
-      <div className="absolute inset-0 bg-linear-to-br from-slate-200/60 via-transparent to-slate-100/40" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(38,70,83,0.3),transparent_50%)]" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary-dark/80 via-primary/30 to-primary-dark/60" />
 
       <div className="max-w-360 mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 min-h-[70vh]">
@@ -302,14 +302,14 @@ function Hero() {
             className="max-w-2xl w-full lg:w-1/2"
           >
             <motion.div variants={cardVariants} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent-light text-xs font-semibold tracking-[0.15em] uppercase">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-xs font-semibold tracking-[0.15em] uppercase">
                 Strategic Consulting
               </span>
             </motion.div>
 
             <motion.h1
               variants={cardVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white"
             >
               Guiding Projects,{" "}
               <span className="text-accent-light">Empowering Growth</span>
@@ -317,7 +317,7 @@ function Hero() {
 
             <motion.p
               variants={cardVariants}
-              className="text-lg text-gray-600 leading-relaxed max-w-xl mb-10"
+              className="text-base text-gray-300 leading-relaxed max-w-xl mb-8"
             >
               Dulcet Ventures Uganda is a multidisciplinary consulting firm
               providing strategic, analytical, and project-focused solutions to
@@ -330,14 +330,14 @@ function Hero() {
             >
               <a
                 href="#services"
-                className="group flex items-center gap-3 bg-accent text-white px-7 py-4 rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 active:scale-[0.98]"
+                className="group flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 active:scale-[0.98]"
               >
                 Explore Our Services
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#contact"
-                className="flex items-center gap-3 px-7 py-4 rounded-full border border-gray-300 text-gray-800 font-semibold hover:border-accent hover:text-accent transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/60 text-white font-semibold hover:border-white hover:text-white transition-all duration-300"
               >
                 Contact Us
               </a>
@@ -351,7 +351,7 @@ function Hero() {
             className="relative w-full lg:w-1/2"
           >
             <div className="relative w-full max-w-lg mx-auto aspect-4/5 lg:aspect-square lg:max-w-full">
-              <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-xl">
+              <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-2xl border border-white/10">
                 <AnimatePresence mode="popLayout">
                   <motion.div
                     key={currentImageIndex}
@@ -413,7 +413,7 @@ function About() {
             <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
               Who We Are
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-8">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-8 text-gray-900">
               A multidisciplinary consulting firm dedicated to transforming
               visions into reality
             </h2>
@@ -450,7 +450,7 @@ function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="text-center p-4 rounded-2xl glass-card"
+                  className="text-center p-5 rounded-2xl glass-card"
                 >
                   <div className="text-2xl md:text-3xl font-bold text-accent-light">
                     {stat.number}
@@ -480,7 +480,7 @@ function Services() {
           <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
             Our Services
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] max-w-2xl mx-auto text-gray-900">
             Comprehensive Solutions for Complex Challenges
           </h2>
         </motion.div>
@@ -497,15 +497,15 @@ function Services() {
                 delay: i * 0.15,
                 ease: [0.32, 0.72, 0, 1],
               }}
-              className="glass-card rounded-4xl p-8 hover:-translate-y-2 transition-transform duration-500"
+              className="glass-card rounded-4xl p-8 hover:-translate-y-2 transition-transform duration-500 border-l-2 border-transparent hover:border-accent"
             >
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                 <category.icon
-                  className="w-7 h-7 text-accent-light"
+                  className="w-7 h-7 text-primary"
                   weight="duotone"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-6">{category.category}</h3>
+              <h3 className="text-xl font-bold mb-6 text-gray-900">{category.category}</h3>
               <ul className="space-y-4">
                 {category.services.map((service) => (
                   <li key={service.name} className="group">
@@ -546,7 +546,7 @@ function Sectors() {
           <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
             Sectors We Serve
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] max-w-2xl mx-auto text-gray-900">
             Expertise Across Key Industries
           </h2>
         </motion.div>
@@ -563,13 +563,13 @@ function Sectors() {
                 delay: i * 0.1,
                 ease: [0.32, 0.72, 0, 1],
               }}
-              className="glass-card rounded-2xl p-6 hover:bg-gray-100 transition-colors duration-300"
+              className="glass-card rounded-2xl p-6 hover:bg-gray-50 transition-colors duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                  <sector.icon className="w-6 h-6 text-accent-light" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <sector.icon className="w-6 h-6 text-primary" />
                 </div>
-                <span className="font-medium">{sector.name}</span>
+                <span className="font-medium text-gray-900">{sector.name}</span>
               </div>
             </motion.div>
           ))}
@@ -632,7 +632,7 @@ function Experience() {
           <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
             Our Experience
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] max-w-2xl mx-auto text-gray-900">
             Projects We've Delivered
           </h2>
         </motion.div>
@@ -663,11 +663,11 @@ function Experience() {
                     i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
                   }`}
                 >
-                  <div className="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-transform duration-300">
-                    <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent-light text-xs font-semibold mb-3">
+                  <div className="glass-card rounded-2xl p-7 hover:-translate-y-1 transition-transform duration-300 border border-gray-200/60">
+                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">
                       {project.year}
                     </span>
-                    <h3 className="font-bold text-lg mb-1">{project.client}</h3>
+                    <h3 className="font-bold text-lg mb-1 text-gray-900">{project.client}</h3>
                     <p className="text-sm text-gray-600">{project.project}</p>
                   </div>
                 </div>
@@ -696,7 +696,7 @@ function Contact() {
             <span className="text-accent-light text-sm font-semibold tracking-[0.15em] uppercase mb-4 block">
               Contact Us
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-8">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-8 text-gray-900">
               Let&apos;s Start a Conversation
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-10">
@@ -706,11 +706,11 @@ function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-accent-light" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">Address</h4>
+                  <h4 className="font-semibold mb-1 text-gray-900">Address</h4>
                   <p className="text-gray-600">
                     P. O. Box 149794, Kampala Uganda
                   </p>
@@ -718,22 +718,22 @@ function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-accent-light" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">Phone</h4>
+                  <h4 className="font-semibold mb-1 text-gray-900">Phone</h4>
                   <p className="text-gray-600">+256 782 915 102</p>
                   <p className="text-gray-600">+256 776 370 552</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                  <Envelope className="w-5 h-5 text-accent-light" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Envelope className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium mb-1">Email</h4>
+                  <h4 className="font-semibold mb-1 text-gray-900">Email</h4>
                   <p className="text-gray-600">dulcetvent@gmail.com</p>
                 </div>
               </div>
@@ -747,7 +747,7 @@ function Contact() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
           >
             <div className="glass-card rounded-4xl p-8 lg:p-10">
-              <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
+              <h3 className="text-2xl font-bold mb-8 text-gray-900">Get in Touch</h3>
               <p className="text-gray-600 mb-8">
                 Reach out to us directly. We&apos;re here to help with your
                 consulting needs.
@@ -756,28 +756,28 @@ function Contact() {
               <div className="space-y-4">
                 <a
                   href="tel:+256782915102"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-accent transition-colors group"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-primary transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Phone
-                      className="w-6 h-6 text-accent-light"
+                      className="w-6 h-6 text-primary"
                       weight="duotone"
                     />
                   </div>
                   <div className="flex-1">
                     <span className="text-sm text-gray-600 block">Call us</span>
-                    <span className="font-semibold">+256 782 915 102</span>
+                    <span className="font-semibold text-gray-900">+256 782 915 102</span>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-accent transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                 </a>
 
                 <a
                   href="mailto:dulcetvent@gmail.com"
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-accent transition-colors group"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-primary transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Envelope
-                      className="w-6 h-6 text-accent-light"
+                      className="w-6 h-6 text-primary"
                       weight="duotone"
                     />
                   </div>
@@ -785,9 +785,9 @@ function Contact() {
                     <span className="text-sm text-gray-600 block">
                       Email us
                     </span>
-                    <span className="font-semibold">dulcetvent@gmail.com</span>
+                    <span className="font-semibold text-gray-900">dulcetvent@gmail.com</span>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-accent transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                 </a>
               </div>
             </div>
@@ -800,11 +800,11 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="py-16 px-6 border-t border-gray-200">
+    <footer className="py-14 px-6 bg-primary-dark border-t border-white/10">
       <div className="max-w-360 mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
+        <div className="grid md:grid-cols-4 gap-8 md:gap-10 mb-10">
           <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
-            <a href="#" className="inline-block mb-4">
+            <a href="#" className="inline-block mb-4 bg-white/90 rounded-lg px-3 py-2">
               <Image
                 src="/logo.png"
                 alt="Dulcet Ventures Uganda Logo"
@@ -814,21 +814,21 @@ function Footer() {
                 unoptimized
               />
             </a>
-            <p className="text-gray-600 max-w-sm">
+            <p className="text-gray-300 max-w-sm">
               Strategic consulting and advisory services for organizations
               across Uganda and East Africa.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-bold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
               {["Home", "About", "Services", "Experience", "Contact"].map(
                 (link) => (
                   <li key={link}>
                     <a
                       href={`#${link.toLowerCase()}`}
-                      className="text-gray-600 hover:text-accent transition-colors"
+                      className="text-gray-300 hover:text-white transition-colors"
                     >
                       {link}
                     </a>
@@ -839,8 +839,8 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-3 text-gray-600">
+            <h4 className="font-bold mb-4 text-white">Services</h4>
+            <ul className="space-y-3 text-gray-300">
               <li>Strategy Development</li>
               <li>Feasibility Studies</li>
               <li>Project Management</li>
@@ -849,13 +849,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-gray-200">
+        <div className="pt-6 border-t border-white/10">
           <div className="flex flex-col items-center gap-2">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} Dulcet Ventures Limited. All
               rights reserved.
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               Designed & Managed by{" "}
               <a
                 href="https://digitaltalisman.com"
@@ -866,7 +866,6 @@ function Footer() {
                 <span className="inline-block bg-linear-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-size-[200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">
                   Digital Talisman
                 </span>
-                <span className="inline-block"> 🇺🇬</span>
               </a>
             </p>
           </div>
