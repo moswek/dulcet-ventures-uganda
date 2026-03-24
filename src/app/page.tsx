@@ -355,10 +355,10 @@ function Hero() {
                 <AnimatePresence mode="popLayout">
                   <motion.div
                     key={currentImageIndex}
-                    initial={{ x: "100%" }}
-                    animate={{ x: 0 }}
-                    exit={{ x: "-100%" }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    initial={{ opacity: 0, scale: 1.05, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                    transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
                     className="absolute inset-0"
                   >
                     <Image
@@ -371,24 +371,35 @@ function Hero() {
                 </AnimatePresence>
               </div>
 
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">10+</div>
-                    <div className="text-xs text-gray-600">Projects</div>
-                  </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">5+</div>
-                    <div className="text-xs text-gray-600">Years</div>
-                  </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">12</div>
-                    <div className="text-xs text-gray-600">Sectors</div>
-                  </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">98%</div>
-                    <div className="text-xs text-gray-600">Satisfaction</div>
-                  </div>
+              {/* gradient underlay so cards are always legible over any photo */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent" />
+
+              <div className="absolute inset-0 flex items-end p-5">
+                <div className="grid grid-cols-2 gap-2.5 w-full">
+                  {[
+                    { value: "10+", label: "Projects",     accent: false },
+                    { value: "5+",  label: "Years",        accent: false },
+                    { value: "12",  label: "Sectors",      accent: false },
+                    { value: "98%", label: "Satisfaction", accent: true  },
+                  ].map(({ value, label, accent }) => (
+                    <div
+                      key={label}
+                      style={{
+                        background: accent ? "rgba(46,163,242,0.2)" : "rgba(255,255,255,0.12)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: accent ? "1px solid rgba(46,163,242,0.4)" : "1px solid rgba(255,255,255,0.25)",
+                      }}
+                      className="rounded-[18px] p-4 flex flex-col gap-1"
+                    >
+                      <span className="text-2xl font-bold text-white leading-none tracking-tight">
+                        {value}
+                      </span>
+                      <span className="text-[10px] font-semibold text-white/60 uppercase tracking-[0.12em]">
+                        {label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -656,7 +667,11 @@ function Experience() {
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent -translate-x-1/2 mt-2" />
+                <div
+                  className={`absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent -translate-x-1/2 mt-2 ${
+                    i === 0 ? "ring-pulse" : ""
+                  }`}
+                />
 
                 <div
                   className={`ml-12 md:ml-0 md:w-[45%] ${
