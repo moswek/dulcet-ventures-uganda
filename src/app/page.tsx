@@ -371,24 +371,35 @@ function Hero() {
                 </AnimatePresence>
               </div>
 
-              <div className="absolute inset-0 flex items-end justify-center pb-6 px-6">
-                <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
-                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
-                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">10+</div>
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Projects</div>
-                  </div>
-                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
-                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">5+</div>
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Years</div>
-                  </div>
-                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
-                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">12</div>
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Sectors</div>
-                  </div>
-                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
-                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">98%</div>
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Satisfaction</div>
-                  </div>
+              {/* gradient underlay so cards are always legible over any photo */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent" />
+
+              <div className="absolute inset-0 flex items-end p-5">
+                <div className="grid grid-cols-2 gap-2.5 w-full">
+                  {[
+                    { value: "10+", label: "Projects",     accent: false },
+                    { value: "5+",  label: "Years",        accent: false },
+                    { value: "12",  label: "Sectors",      accent: false },
+                    { value: "98%", label: "Satisfaction", accent: true  },
+                  ].map(({ value, label, accent }) => (
+                    <div
+                      key={label}
+                      style={{
+                        background: accent ? "rgba(46,163,242,0.2)" : "rgba(255,255,255,0.12)",
+                        backdropFilter: "blur(20px)",
+                        WebkitBackdropFilter: "blur(20px)",
+                        border: accent ? "1px solid rgba(46,163,242,0.4)" : "1px solid rgba(255,255,255,0.25)",
+                      }}
+                      className="rounded-[18px] p-4 flex flex-col gap-1"
+                    >
+                      <span className="text-2xl font-bold text-white leading-none tracking-tight">
+                        {value}
+                      </span>
+                      <span className="text-[10px] font-semibold text-white/60 uppercase tracking-[0.12em]">
+                        {label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
