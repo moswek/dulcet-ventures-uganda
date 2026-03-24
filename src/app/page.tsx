@@ -355,10 +355,10 @@ function Hero() {
                 <AnimatePresence mode="popLayout">
                   <motion.div
                     key={currentImageIndex}
-                    initial={{ x: "100%" }}
-                    animate={{ x: 0 }}
-                    exit={{ x: "-100%" }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    initial={{ opacity: 0, scale: 1.05, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                    transition={{ duration: 1.2, ease: [0.32, 0.72, 0, 1] }}
                     className="absolute inset-0"
                   >
                     <Image
