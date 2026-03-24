@@ -281,6 +281,13 @@ function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    heroImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 8000);
@@ -915,7 +922,7 @@ function WhatsAppButton() {
         stiffness: 100,
         damping: 20,
       }}
-      className="fixed bottom-6 right-6 z-50 w-16 h-16"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16"
       aria-label="Chat on WhatsApp"
     >
       <Image
