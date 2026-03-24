@@ -281,6 +281,13 @@ function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    heroImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
     }, 8000);
@@ -701,7 +708,7 @@ function Contact() {
   return (
     <section id="contact" className="py-24 lg:py-32 px-6">
       <div className="max-w-360 mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -761,7 +768,7 @@ function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
           >
-            <div className="glass-card rounded-4xl p-8 lg:p-10">
+            <div className="glass-card rounded-4xl p-8 lg:p-10 text-center md:text-left lg:mt-8">
               <h3 className="text-2xl font-bold mb-8 text-gray-900">Get in Touch</h3>
               <p className="text-gray-600 mb-8">
                 Reach out to us directly. We&apos;re here to help with your
@@ -915,7 +922,7 @@ function WhatsAppButton() {
         stiffness: 100,
         damping: 20,
       }}
-      className="fixed bottom-6 right-6 z-50 w-16 h-16"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16"
       aria-label="Chat on WhatsApp"
     >
       <Image
@@ -923,7 +930,7 @@ function WhatsAppButton() {
         alt="WhatsApp"
         width={64}
         height={64}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain transition-all duration-300 whatsapp-btn"
       />
     </motion.a>
   );

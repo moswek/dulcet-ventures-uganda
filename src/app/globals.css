@@ -203,3 +203,17 @@ body {
 .ring-pulse {
   animation: ring-pulse 2.5s ease-in-out infinite;
 }
+
+.whatsapp-btn {
+  filter: saturate(0.3) brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+}
+
+@media (min-width: 768px) {
+  .whatsapp-btn {
+    filter: saturate(0.3) brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+  }
+  
+  .whatsapp-btn:hover {
+    filter: saturate(1) brightness(1) drop-shadow(0 4px 16px rgba(37,211,102,0.5));
+  }
+}
