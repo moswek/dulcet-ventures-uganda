@@ -179,15 +179,15 @@ function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        isScrolled ? "mt-4" : "mt-8"
+        isScrolled ? "mt-2" : "mt-4"
       }`}
     >
       <div className="max-w-360 mx-auto px-6">
         <div
           className={`mx-auto transition-all duration-700 rounded-full w-full max-w-6xl ${
             isScrolled
-              ? "bg-primary-dark/95 backdrop-blur-md shadow-sm py-3 px-6 border border-white/10"
-              : "bg-primary-dark/80 backdrop-blur-sm py-5 px-8 border border-white/10"
+              ? "bg-primary-dark/95 backdrop-blur-md shadow-sm py-2.5 px-5 border border-white/10"
+              : "bg-primary-dark/80 backdrop-blur-sm py-4 px-6 border border-white/10"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -302,14 +302,14 @@ function Hero() {
             className="max-w-2xl w-full lg:w-1/2"
           >
             <motion.div variants={cardVariants} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/20 text-white text-xs font-semibold tracking-[0.15em] uppercase">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-white text-xs font-semibold tracking-[0.15em] uppercase">
                 Strategic Consulting
               </span>
             </motion.div>
 
             <motion.h1
               variants={cardVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8 text-white"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6 text-white"
             >
               Guiding Projects,{" "}
               <span className="text-accent-light">Empowering Growth</span>
@@ -317,7 +317,7 @@ function Hero() {
 
             <motion.p
               variants={cardVariants}
-              className="text-lg text-gray-300 leading-relaxed max-w-xl mb-10"
+              className="text-base text-gray-300 leading-relaxed max-w-xl mb-8"
             >
               Dulcet Ventures Uganda is a multidisciplinary consulting firm
               providing strategic, analytical, and project-focused solutions to
@@ -330,14 +330,14 @@ function Hero() {
             >
               <a
                 href="#services"
-                className="group flex items-center gap-3 bg-accent text-white px-7 py-4 rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 active:scale-[0.98]"
+                className="group flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent-dark transition-all duration-300 active:scale-[0.98]"
               >
                 Explore Our Services
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#contact"
-                className="flex items-center gap-3 px-7 py-4 rounded-full border-2 border-white/60 text-white font-semibold hover:border-white hover:text-white transition-all duration-300"
+                className="flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/60 text-white font-semibold hover:border-white hover:text-white transition-all duration-300"
               >
                 Contact Us
               </a>
@@ -800,11 +800,11 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="py-14 px-6 border-t border-gray-200 bg-white">
+    <footer className="py-14 px-6 bg-primary-dark border-t border-white/10">
       <div className="max-w-360 mx-auto">
         <div className="grid md:grid-cols-4 gap-8 md:gap-10 mb-10">
           <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
-            <a href="#" className="inline-block mb-4">
+            <a href="#" className="inline-block mb-4 bg-white/90 rounded-lg px-3 py-2">
               <Image
                 src="/logo.png"
                 alt="Dulcet Ventures Uganda Logo"
@@ -814,21 +814,21 @@ function Footer() {
                 unoptimized
               />
             </a>
-            <p className="text-gray-600 max-w-sm">
+            <p className="text-gray-300 max-w-sm">
               Strategic consulting and advisory services for organizations
               across Uganda and East Africa.
             </p>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-gray-900">Quick Links</h4>
+            <h4 className="font-bold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-3">
               {["Home", "About", "Services", "Experience", "Contact"].map(
                 (link) => (
                   <li key={link}>
                     <a
                       href={`#${link.toLowerCase()}`}
-                      className="text-gray-600 hover:text-primary transition-colors"
+                      className="text-gray-300 hover:text-white transition-colors"
                     >
                       {link}
                     </a>
@@ -839,8 +839,8 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-gray-900">Services</h4>
-            <ul className="space-y-3 text-gray-600">
+            <h4 className="font-bold mb-4 text-white">Services</h4>
+            <ul className="space-y-3 text-gray-300">
               <li>Strategy Development</li>
               <li>Feasibility Studies</li>
               <li>Project Management</li>
@@ -849,13 +849,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-gray-200">
+        <div className="pt-6 border-t border-white/10">
           <div className="flex flex-col items-center gap-2">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} Dulcet Ventures Limited. All
               rights reserved.
             </p>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               Designed & Managed by{" "}
               <a
                 href="https://digitaltalisman.com"
@@ -866,7 +866,6 @@ function Footer() {
                 <span className="inline-block bg-linear-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-size-[200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">
                   Digital Talisman
                 </span>
-                <span className="inline-block"> 🇺🇬</span>
               </a>
             </p>
           </div>
