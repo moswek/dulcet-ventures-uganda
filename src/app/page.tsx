@@ -371,23 +371,23 @@ function Hero() {
                 </AnimatePresence>
               </div>
 
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">10+</div>
-                    <div className="text-xs text-gray-600">Projects</div>
+              <div className="absolute inset-0 flex items-end justify-center pb-6 px-6">
+                <div className="grid grid-cols-2 gap-4 w-full max-w-xs">
+                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
+                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">10+</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Projects</div>
                   </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">5+</div>
-                    <div className="text-xs text-gray-600">Years</div>
+                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
+                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">5+</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Years</div>
                   </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">12</div>
-                    <div className="text-xs text-gray-600">Sectors</div>
+                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
+                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">12</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Sectors</div>
                   </div>
-                  <div className="glass-card p-4 rounded-2xl text-center">
-                    <div className="text-2xl font-bold text-accent">98%</div>
-                    <div className="text-xs text-gray-600">Satisfaction</div>
+                  <div className="glass-card-stats p-5 rounded-2xl text-center border border-accent/20">
+                    <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-accent to-accent-light">98%</div>
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mt-1 font-medium">Satisfaction</div>
                   </div>
                 </div>
               </div>
