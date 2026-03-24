@@ -923,7 +923,18 @@ function WhatsAppButton() {
         alt="WhatsApp"
         width={64}
         height={64}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain transition-all duration-300"
+        style={{
+          filter: "saturate(0.3) brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.15))",
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLImageElement).style.filter =
+            "saturate(1) brightness(1) drop-shadow(0 4px 16px rgba(37,211,102,0.5))";
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLImageElement).style.filter =
+            "saturate(0.3) brightness(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.15))";
+        }}
       />
     </motion.a>
   );
