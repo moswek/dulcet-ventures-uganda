@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: "/Users/MosesWekesa/VSCodeProjects/Alpha/dulcet-ventures",
+  },
   images: {
     remotePatterns: [
       {
