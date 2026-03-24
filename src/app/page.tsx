@@ -182,12 +182,12 @@ function Navigation() {
         isScrolled ? "mt-4" : "mt-8"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6">
+      <div className="max-w-360 mx-auto px-6">
         <div
           className={`mx-auto transition-all duration-700 ${
             isScrolled
-              ? "bg-white/90 backdrop-blur-md shadow-sm py-3 px-6 border border-gray-100"
-              : "py-5 px-8 bg-white/80 backdrop-blur-sm border border-transparent"
+              ? "bg-white/70 backdrop-blur-md shadow-sm py-3 px-6 border border-gray-200"
+              : "py-5 px-8 bg-white/50 backdrop-blur-sm border border-white/30"
           } rounded-full w-full max-w-6xl`}
         >
           <div className="flex items-center justify-between">
@@ -245,7 +245,7 @@ function Navigation() {
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 top-24 bg-white/95 md:hidden"
+            className="fixed inset-0 top-24 bg-white/85 md:hidden"
           >
             <div className="flex flex-col items-center justify-center gap-8 pt-16">
               {navLinks.map((link, i) => (
@@ -288,11 +288,12 @@ function Hero() {
   }, [heroImages.length]);
 
   return (
-    <section className="relative min-h-[100dvh] pt-32 pb-20 px-6 overflow-hidden">
+    <section className="relative min-h-dvh pt-32 pb-20 px-6 overflow-hidden bg-slate-100">
       <div className="absolute inset-0 mesh-gradient" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(46,163,242,0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(38,70,83,0.12),transparent_50%)]" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-200/60 via-transparent to-slate-100/40" />
 
-      <div className="max-w-[1440px] mx-auto relative z-10">
+      <div className="max-w-360 mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 min-h-[70vh]">
           <motion.div
             variants={staggerContainer}
@@ -349,7 +350,7 @@ function Hero() {
             transition={{ duration: 1, delay: 0.3, ease: [0.32, 0.72, 0, 1] }}
             className="relative w-full lg:w-1/2"
           >
-            <div className="relative w-full max-w-lg mx-auto aspect-[4/5] lg:aspect-square lg:max-w-full">
+            <div className="relative w-full max-w-lg mx-auto aspect-4/5 lg:aspect-square lg:max-w-full">
               <div className="absolute inset-0 rounded-[3rem] overflow-hidden shadow-xl">
                 <AnimatePresence mode="popLayout">
                   <motion.div
@@ -401,7 +402,7 @@ function Hero() {
 function About() {
   return (
     <section id="about" className="py-24 lg:py-32 px-6">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -468,7 +469,7 @@ function About() {
 function Services() {
   return (
     <section id="services" className="py-24 lg:py-32 px-6 bg-gray-50">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -496,7 +497,7 @@ function Services() {
                 delay: i * 0.15,
                 ease: [0.32, 0.72, 0, 1],
               }}
-              className="glass-card rounded-[2rem] p-8 hover:-translate-y-2 transition-transform duration-500"
+              className="glass-card rounded-4xl p-8 hover:-translate-y-2 transition-transform duration-500"
             >
               <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-6">
                 <category.icon
@@ -510,7 +511,7 @@ function Services() {
                   <li key={service.name} className="group">
                     <div className="flex items-start gap-3">
                       <CheckCircle
-                        className="w-5 h-5 text-accent flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="w-5 h-5 text-accent shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
                         weight="fill"
                       />
                       <div>
@@ -534,7 +535,7 @@ function Services() {
 function Sectors() {
   return (
     <section className="py-24 lg:py-32 px-6 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -590,7 +591,7 @@ const clientLogos = [
 function LogoMarquee() {
   return (
     <section className="py-16 px-6 overflow-hidden bg-white">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <p className="text-center text-sm text-gray-500 font-medium mb-8 uppercase tracking-widest">
           Trusted by Leading Organizations
         </p>
@@ -599,7 +600,7 @@ function LogoMarquee() {
             {[...clientLogos, ...clientLogos, ...clientLogos].map((logo, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 h-16 w-32 flex items-center justify-center"
+                className="shrink-0 h-16 w-32 flex items-center justify-center"
               >
                 <Image
                   src={logo.src}
@@ -620,7 +621,7 @@ function LogoMarquee() {
 function Experience() {
   return (
     <section id="experience" className="py-24 lg:py-32 px-6 bg-gray-50">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -637,7 +638,7 @@ function Experience() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate to-transparent" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-slate to-transparent" />
 
           <div className="space-y-8">
             {projects.map((project, i) => (
@@ -684,8 +685,8 @@ function Experience() {
 function Contact() {
   return (
     <section id="contact" className="py-24 lg:py-32 px-6">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+      <div className="max-w-360 mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -705,7 +706,7 @@ function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-accent-light" />
                 </div>
                 <div>
@@ -717,7 +718,7 @@ function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-accent-light" />
                 </div>
                 <div>
@@ -728,7 +729,7 @@ function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                   <Envelope className="w-5 h-5 text-accent-light" />
                 </div>
                 <div>
@@ -745,7 +746,7 @@ function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
           >
-            <div className="glass-card rounded-[2rem] p-8 lg:p-10">
+            <div className="glass-card rounded-4xl p-8 lg:p-10">
               <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
               <p className="text-gray-600 mb-8">
                 Reach out to us directly. We&apos;re here to help with your
@@ -800,7 +801,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="py-16 px-6 border-t border-gray-200">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-12">
           <div className="md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
             <a href="#" className="inline-block mb-4">
@@ -862,7 +863,7 @@ function Footer() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <span className="inline-block bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-[length:200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">
+                <span className="inline-block bg-linear-to-r from-fuchsia-500 via-cyan-400 to-fuchsia-500 bg-size-[200%_auto] animate-gradient-wave bg-clip-text text-transparent font-semibold">
                   Digital Talisman
                 </span>
                 <span className="inline-block"> 🇺🇬</span>
@@ -888,17 +889,17 @@ function WhatsAppButton() {
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0 }}
       whileHover={{ scale: 1.15, y: -4 }}
-      animate={{ 
-        opacity: 1, 
+      animate={{
+        opacity: 1,
         scale: 1,
         y: [0, -8, 0],
       }}
-      transition={{ 
+      transition={{
         y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 },
-        delay: 1, 
-        type: "spring", 
-        stiffness: 100, 
-        damping: 20 
+        delay: 1,
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
       }}
       className="fixed bottom-6 right-6 z-50 w-16 h-16"
       aria-label="Chat on WhatsApp"
