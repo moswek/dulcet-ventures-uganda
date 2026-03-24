@@ -190,3 +190,16 @@ body {
   width: fit-content;
   will-change: transform;
 }
+
+@keyframes ring-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(46, 163, 242, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(46, 163, 242, 0);
+  }
+}
+
+.ring-pulse {
+  animation: ring-pulse 2.5s ease-in-out infinite;
+}

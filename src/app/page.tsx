@@ -667,7 +667,11 @@ function Experience() {
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent -translate-x-1/2 mt-2" />
+                <div
+                  className={`absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-accent -translate-x-1/2 mt-2 ${
+                    i === 0 ? "ring-pulse" : ""
+                  }`}
+                />
 
                 <div
                   className={`ml-12 md:ml-0 md:w-[45%] ${
