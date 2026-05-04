@@ -22,7 +22,6 @@ import {
   Sun,
   ArrowUpRight,
   CheckCircle,
-  ChatCircle,
 } from "@phosphor-icons/react";
 
 const staggerContainer = {
@@ -904,24 +903,10 @@ function WhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <motion.a
+    <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, scale: 0 }}
-      whileHover={{ scale: 1.15, y: -4 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        y: [0, -8, 0],
-      }}
-      transition={{
-        y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 },
-        delay: 1,
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-      }}
       className="fixed bottom-6 right-6 z-50 w-14 h-14 md:w-16 md:h-16"
       aria-label="Chat on WhatsApp"
     >
@@ -930,9 +915,9 @@ function WhatsAppButton() {
         alt="WhatsApp"
         width={64}
         height={64}
-        className="w-full h-full object-contain transition-all duration-300 whatsapp-btn"
+        className="w-full h-full object-contain whatsapp-btn"
       />
-    </motion.a>
+    </a>
   );
 }
 
